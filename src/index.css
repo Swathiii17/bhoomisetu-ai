@@ -1,0 +1,354 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+@layer base {
+  :root {
+    --primary-gov: #0f172a;
+    --accent-emerald: #059669;
+    --accent-amber: #d97706;
+    --accent-rose: #e11d48;
+    --accent-indigo: #4f46e5;
+    --accent-sky: #0284c7;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased min-h-screen selection:bg-indigo-500 selection:text-white;
+  }
+}
+
+/* Keep the existing dark utility classes intact while providing a readable government light theme. */
+[data-theme='light'] body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .bg-slate-950,
+[data-theme='light'] .bg-slate-950\/40,
+[data-theme='light'] .bg-slate-950\/60,
+[data-theme='light'] .bg-slate-950\/80 {
+  background-color: #f8fafc !important;
+}
+
+[data-theme='light'] .bg-slate-900,
+[data-theme='light'] .bg-slate-900\/90,
+[data-theme='light'] .bg-slate-900\/95,
+[data-theme='light'] .bg-slate-800,
+[data-theme='light'] .bg-slate-800\/50,
+[data-theme='light'] .bg-slate-800\/60,
+[data-theme='light'] .bg-slate-800\/80 {
+  background-color: #ffffff !important;
+}
+
+[data-theme='light'] .hover\:bg-slate-800:hover,
+[data-theme='light'] .hover\:bg-slate-800\/60:hover,
+[data-theme='light'] .hover\:bg-slate-700:hover {
+  background-color: #f1f5f9 !important;
+}
+
+[data-theme='light'] .text-white,
+[data-theme='light'] .text-slate-100,
+[data-theme='light'] .text-slate-200 {
+  color: #0f172a !important;
+}
+
+[data-theme='light'] .text-slate-300,
+[data-theme='light'] .text-slate-400,
+[data-theme='light'] .text-slate-500 {
+  color: #475569 !important;
+}
+
+[data-theme='light'] .border-slate-800,
+[data-theme='light'] .border-slate-800\/60,
+[data-theme='light'] .border-slate-700,
+[data-theme='light'] .border-slate-700\/50,
+[data-theme='light'] .border-slate-700\/60 {
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme='light'] .divide-slate-800\/60 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #e2e8f0 !important;
+}
+
+[data-theme='light'] input,
+[data-theme='light'] textarea,
+[data-theme='light'] select {
+  color: #0f172a !important;
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+[data-theme='light'] input::placeholder,
+[data-theme='light'] textarea::placeholder {
+  color: #64748b !important;
+}
+
+[data-theme='light'] .bg-gradient-to-br.from-slate-900,
+[data-theme='light'] .bg-gradient-to-r.from-slate-800 {
+  background-image: none !important;
+  background-color: #ffffff !important;
+}
+
+[data-theme='light'] .bg-indigo-950,
+[data-theme='light'] .bg-emerald-950,
+[data-theme='light'] .bg-amber-950,
+[data-theme='light'] .bg-rose-950,
+[data-theme='light'] .bg-sky-950 {
+  filter: none;
+}
+
+[data-theme='light'] .leaflet-popup-content-wrapper,
+[data-theme='light'] .leaflet-popup-tip {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+[data-theme='light'] ::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+[data-theme='light'] ::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+}
+
+/* Enterprise light surfaces and controls. These rules are intentionally scoped to light mode. */
+[data-theme='light'] .min-h-screen {
+  background-color: #f1f5f9 !important;
+}
+
+[data-theme='light'] header {
+  background-color: #ffffff !important;
+  border-color: #dbe3ee !important;
+  color: #0f2747 !important;
+  box-shadow: 0 1px 8px rgba(15, 39, 71, 0.08) !important;
+}
+
+[data-theme='light'] aside {
+  background-color: #ffffff !important;
+  border-color: #dbe3ee !important;
+}
+
+[data-theme='light'] aside a {
+  color: #475569 !important;
+}
+
+[data-theme='light'] aside a:hover {
+  color: #0f2747 !important;
+  background-color: #eef3f8 !important;
+}
+
+[data-theme='light'] aside a.bg-gradient-to-r.from-indigo-600 {
+  background-image: none !important;
+  background-color: #123b68 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(18, 59, 104, 0.18) !important;
+}
+
+[data-theme='light'] aside .border-t {
+  border-color: #dbe3ee !important;
+}
+
+[data-theme='light'] main > div > .bg-slate-900,
+[data-theme='light'] main .shadow-xl,
+[data-theme='light'] main .shadow-2xl {
+  box-shadow: 0 8px 24px rgba(15, 39, 71, 0.07) !important;
+}
+
+[data-theme='light'] .text-indigo-300,
+[data-theme='light'] .text-indigo-400 {
+  color: #1d4f91 !important;
+}
+
+[data-theme='light'] .text-emerald-300,
+[data-theme='light'] .text-emerald-400 {
+  color: #087443 !important;
+}
+
+[data-theme='light'] .text-amber-300,
+[data-theme='light'] .text-amber-400 {
+  color: #a04b00 !important;
+}
+
+[data-theme='light'] .text-rose-300,
+[data-theme='light'] .text-rose-400 {
+  color: #b4233c !important;
+}
+
+[data-theme='light'] .bg-indigo-950 {
+  background-color: #e8f0fb !important;
+}
+
+[data-theme='light'] .bg-emerald-950 {
+  background-color: #e8f6ef !important;
+}
+
+[data-theme='light'] .bg-amber-950 {
+  background-color: #fff4df !important;
+}
+
+[data-theme='light'] .bg-rose-950 {
+  background-color: #fff0f1 !important;
+}
+
+[data-theme='light'] .bg-sky-950 {
+  background-color: #e8f4fb !important;
+}
+
+[data-theme='light'] .bg-indigo-600,
+[data-theme='light'] .bg-indigo-700 {
+  background-color: #164a7b !important;
+}
+
+[data-theme='light'] .hover\:bg-indigo-500:hover {
+  background-color: #1d5b93 !important;
+}
+
+[data-theme='light'] button.bg-indigo-600,
+[data-theme='light'] button.bg-indigo-700,
+[data-theme='light'] a.bg-indigo-600,
+[data-theme='light'] a.bg-indigo-700 {
+  color: #ffffff !important;
+}
+
+[data-theme='light'] .recharts-default-tooltip {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f2747 !important;
+  box-shadow: 0 8px 20px rgba(15, 39, 71, 0.12) !important;
+}
+
+[data-theme='light'] .recharts-tooltip-item,
+[data-theme='light'] .recharts-tooltip-label {
+  color: #334155 !important;
+}
+
+/* Status semantics: strong light-mode contrast without altering dark-mode badges. */
+[data-theme='light'] .status-badge {
+  border-width: 1px !important;
+  font-weight: 700 !important;
+  box-shadow: none !important;
+}
+
+[data-theme='light'] .status-badge.status-progress {
+  background-color: #fef3c7 !important;
+  border-color: #f59e0b !important;
+  color: #92400e !important;
+}
+
+[data-theme='light'] .status-badge.status-completed {
+  background-color: #dcfce7 !important;
+  border-color: #86efac !important;
+  color: #166534 !important;
+}
+
+[data-theme='light'] .status-badge.status-pending {
+  background-color: #ffedd5 !important;
+  border-color: #fdba74 !important;
+  color: #9a3412 !important;
+}
+
+[data-theme='light'] .status-badge.status-rejected {
+  background-color: #fee2e2 !important;
+  border-color: #fca5a5 !important;
+  color: #991b1b !important;
+}
+
+[data-theme='light'] .status-badge.status-review {
+  background-color: #dbeafe !important;
+  border-color: #93c5fd !important;
+  color: #1e3a8a !important;
+}
+
+[data-theme='light'] .status-badge.status-default {
+  background-color: #f1f5f9 !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+[data-theme='light'] header .bg-gradient-to-r.from-slate-800 {
+  background-image: none !important;
+  background-color: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #123b68 !important;
+}
+
+[data-theme='light'] header .bg-gradient-to-r.from-slate-800 .text-indigo-200,
+[data-theme='light'] header .bg-gradient-to-r.from-slate-800 .text-indigo-400 {
+  color: #123b68 !important;
+}
+
+[data-theme='light'] table thead {
+  background-color: #eef2f6 !important;
+  color: #334155 !important;
+}
+
+[data-theme='light'] table tbody tr:hover {
+  background-color: #f8fafc !important;
+}
+
+[data-theme='light'] main button:not(.theme-toggle),
+[data-theme='light'] main a.bg-indigo-600,
+[data-theme='light'] main a.bg-indigo-700 {
+  box-shadow: 0 2px 6px rgba(15, 39, 71, 0.12) !important;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Leaflet Map overrides */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+  background-color: #0f172a !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5) !important;
+}
+
+.leaflet-popup-tip {
+  background-color: #0f172a !important;
+}
+
+.custom-pulse-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.7);
+  }
+  70% {
+    transform: scale(1.3);
+    box-shadow: 0 0 0 10px rgba(225, 29, 72, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(225, 29, 72, 0);
+  }
+}
+
+.pulse-dispute {
+  animation: pulse-ring 2s infinite;
+  border-radius: 50%;
+}

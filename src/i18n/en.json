@@ -1,0 +1,56 @@
+{
+  "appTitle": "BhoomiSetu AI",
+  "appSubtitle": "National Land Acquisition & Management System",
+  "nav": {
+    "landing": "Home",
+    "nationalDashboard": "National Dashboard",
+    "stateDashboard": "State Dashboard",
+    "districtDashboard": "District Dashboard",
+    "agencyDashboard": "Agency Dashboard",
+    "projects": "Projects Directory",
+    "gisMap": "GIS Land Map",
+    "parcels": "Land Parcel Management",
+    "compensation": "Compensation Tracker",
+    "rrManagement": "R&R Management",
+    "affectedFamilies": "Affected Families",
+    "documents": "Document Repository",
+    "aiDelayPrediction": "AI Delay Prediction",
+    "aiDocVerification": "AI Document Verification",
+    "fieldVerification": "Field Verification",
+    "earlyWarnings": "Early Warning Center",
+    "reports": "MIS Reports",
+    "auditLogs": "Audit Logs",
+    "users": "User Management",
+    "login": "Sign In",
+    "logout": "Sign Out"
+  },
+  "roles": {
+    "ADMIN": "System Administrator",
+    "CENTRAL_MINISTRY": "Central Ministry Officer",
+    "STATE_GOVT": "State Government Authority",
+    "DISTRICT_AUTHORITY": "District Revenue Officer",
+    "PROJECT_AGENCY": "Project Implementing Agency"
+  },
+  "stats": {
+    "totalProjects": "Total Infrastructure Projects",
+    "totalLandProposed": "Total Land Proposed (Acres)",
+    "totalLandAcquired": "Total Land Acquired (Acres)",
+    "compensationAssessed": "Total Compensation Assessed",
+    "compensationPaid": "Total Compensation Paid",
+    "affectedFamilies": "Total Affected Families",
+    "displacedFamilies": "Displaced Families",
+    "rrCompleted": "R&R Completed",
+    "highRiskProjects": "High Delay Risk Projects"
+  },
+  "actions": {
+    "createProject": "Create Proposal",
+    "submit": "Submit Proposal",
+    "verify": "Verify",
+    "approve": "Approve",
+    "reject": "Reject",
+    "export": "Export MIS Report",
+    "runPrediction": "Run AI Prediction",
+    "scanDocument": "Scan & Verify",
+    "filter": "Filter Data"
+  }
+}
