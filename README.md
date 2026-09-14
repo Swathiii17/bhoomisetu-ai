@@ -1,4 +1,10 @@
-# React + Vite
+# LandVision
+
+Connecting Land & Governance.
+
+LandVision is a role-based land acquisition governance platform with AI decision support, GIS mapping, document verification, approval workflows, compensation tracking, and field verification tools.
+
+## Development
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 

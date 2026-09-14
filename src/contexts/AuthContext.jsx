@@ -46,7 +46,7 @@ export function AuthProvider({ children }) {
       id: `usr-custom-${Date.now()}`,
       name: `Officer (${roleKey})`,
       role: roleKey,
-      email: `${roleKey.toLowerCase()}@bhoomisetu.gov.in`,
+      email: `${roleKey.toLowerCase()}@landvision.gov.in`,
       organization: `${roleKey} Department`,
       state: roleKey === 'STATE_GOVT' || roleKey === 'DISTRICT_AUTHORITY' || roleKey === 'FIELD_OFFICER' ? 'Tamil Nadu' : 'All India',
       district: roleKey === 'DISTRICT_AUTHORITY' || roleKey === 'FIELD_OFFICER' ? 'Kanchipuram' : 'All'

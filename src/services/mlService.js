@@ -1,5 +1,5 @@
 /**
- * BhoomiSetu AI Engine & Decision Support System
+ * LandVision Engine & Decision Support System
  * Implements Machine Learning risk prediction algorithms and rule-based document validation.
  */
 

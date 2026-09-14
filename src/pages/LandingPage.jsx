@@ -32,7 +32,7 @@ export default function LandingPage() {
   return (
     <div className="space-y-12 pb-12">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-indigo-950/60 border border-slate-800 p-8 lg:p-14 shadow-2xl">
+      <section className="landing-hero relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-950 to-indigo-950/60 border border-slate-800 p-8 lg:p-14 shadow-2xl">
         <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -43,11 +43,11 @@ export default function LandingPage() {
           </div>
 
           <h1 className="text-4xl lg:text-6xl font-extrabold text-white tracking-tight leading-none">
-            Digitizing National Land Acquisition with <span className="bg-gradient-to-r from-indigo-400 via-emerald-400 to-amber-300 bg-clip-text text-transparent">AI & GIS Analytics</span>
+            Digitizing National Land Acquisition with <span className="landing-analytics-label">AI & GIS Analytics</span>
           </h1>
 
           <p className="text-base lg:text-lg text-slate-300 font-normal leading-relaxed max-w-3xl">
-            BhoomiSetu AI unifies Central Ministries, State Governments, District Revenue Authorities, and Implementing Agencies into a single transparent platform—eliminating delays, predicting acquisition risks, verifying documents with OCR, and tracking compensation in real time.
+            LandVision unifies Central Ministries, State Governments, District Revenue Authorities, and Implementing Agencies into a single transparent platform—eliminating delays, predicting acquisition risks, verifying documents with OCR, and tracking compensation in real time.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -96,7 +96,7 @@ export default function LandingPage() {
             </div>
             <div>
               <h3 className="text-sm font-extrabold text-white uppercase tracking-wider">Our Unified Solution</h3>
-              <p className="text-xs text-emerald-300 font-medium">BhoomiSetu AI Decision Support Platform</p>
+              <p className="text-xs text-emerald-300 font-medium">LandVision Decision Support Platform</p>
             </div>
           </div>
           <ul className="space-y-2 text-xs text-slate-300">

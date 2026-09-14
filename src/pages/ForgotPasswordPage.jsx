@@ -42,7 +42,7 @@ export default function ForgotPasswordPage() {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500"
-                  placeholder="officer@bhoomisetu.gov.in"
+                  placeholder="officer@landvision.gov.in"
                 />
               </div>
             </div>

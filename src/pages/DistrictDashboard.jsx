@@ -81,7 +81,7 @@ export default function DistrictDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Link
           to="/field-verification"
-          className="bg-gradient-to-r from-amber-950/80 to-slate-900 border border-amber-700/60 p-4 rounded-2xl flex items-center space-x-3 hover:border-amber-500 transition-colors"
+          className="bg-slate-900 border border-slate-800 p-4 rounded-2xl flex items-center space-x-3 hover:border-amber-500 transition-colors shadow-xl"
         >
           <div className="p-3 bg-amber-900/60 rounded-xl text-amber-300">
             <Smartphone size={22} />

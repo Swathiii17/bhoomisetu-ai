@@ -93,18 +93,18 @@ export default function ApprovalWorkflow() {
                     const isCurrent = stg.key === activeProject.currentStage;
 
                     return (
-                      <div key={stg.key} className={`p-3 rounded-2xl border text-xs space-y-1 ${
-                        isPassed ? 'bg-emerald-950/40 border-emerald-800/80 text-emerald-300' :
-                        isCurrent ? 'bg-indigo-950/60 border-indigo-500 text-white font-bold ring-1 ring-indigo-500' :
-                        'bg-slate-950/60 border-slate-800 text-slate-500'
+                      <div key={stg.key} className={`gateway-card p-3 rounded-2xl border text-xs space-y-1 ${
+                        isPassed ? 'gateway-passed bg-emerald-950/40 border-emerald-800/80 text-emerald-300' :
+                        isCurrent ? 'gateway-current bg-indigo-950/60 border-indigo-500 text-white font-bold ring-1 ring-indigo-500' :
+                        'gateway-pending bg-slate-950/60 border-slate-800 text-slate-500'
                       }`}>
                         <div className="flex items-center justify-between">
-                          <span className="text-[10px] uppercase font-bold text-slate-400">Gate {i+1}</span>
+                          <span className="gateway-label text-[10px] uppercase font-bold text-slate-400">Gate {i+1}</span>
                           {isPassed && <CheckCircle2 size={14} className="text-emerald-400" />}
                           {isCurrent && <Clock size={14} className="text-amber-400 animate-spin" />}
                         </div>
-                        <div className="font-bold truncate">{stg.key}</div>
-                        <div className="text-[9px] text-slate-400">{stg.role.replace('_', ' ')}</div>
+                        <div className="gateway-title font-bold truncate">{stg.key}</div>
+                        <div className="gateway-role text-[9px] text-slate-400">{stg.role.replace('_', ' ')}</div>
                       </div>
                     );
                   })}

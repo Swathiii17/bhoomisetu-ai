@@ -1,4 +1,4 @@
-// Firebase & Firestore Service Layer for BhoomiSetu AI National Portal
+// Firebase & Firestore Service Layer for LandVision National Portal
 
 // Collection Names Registry as requested in specifications:
 // users, projects, approvals, parcels, compensation, families, rr, milestones, notifications, documents, auditLogs
@@ -20,19 +20,19 @@ export const COLLECTIONS = {
 export const auth = {
   currentUser: {
     uid: 'usr-001',
-    email: 'admin@bhoomisetu.gov.in',
+    email: 'admin@landvision.gov.in',
     displayName: 'Dr. Rajesh Kumar, IAS'
   }
 };
 
 // Simulated Firestore DB Singleton
 export const db = {
-  name: 'bhoomisetu-firestore-db'
+  name: 'landvision-firestore-db'
 };
 
 // Simulated Firebase Storage Singleton
 export const storage = {
-  bucket: 'bhoomisetu-ai.appspot.com'
+  bucket: 'landvision.appspot.com'
 };
 
 /**
@@ -46,7 +46,7 @@ export async function uploadFileToStorage(file, folder = 'documents') {
   } catch (err) {
     console.warn('Storage upload fallback:', err.message);
   }
-  return `https://storage.bhoomisetu.gov.in/${folder}/${file?.name || 'document.pdf'}`;
+  return `https://storage.landvision.gov.in/${folder}/${file?.name || 'document.pdf'}`;
 }
 
 /**

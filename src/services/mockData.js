@@ -1,11 +1,11 @@
-// Initial seed data for BhoomiSetu AI National Land Acquisition System
+// Initial seed data for LandVision National Land Acquisition System
 // Firestore collections: users, projects, approvals, parcels, compensation, families, rr, milestones, notifications, documents, auditLogs
 
 export const INITIAL_USER = {
   id: 'usr-001',
-  name: 'Dr. Rajesh Kumar, IAS',
+  name: 'Swathi',
   role: 'ADMIN', // ADMIN | CENTRAL_MINISTRY | STATE_GOVT | DISTRICT_AUTHORITY | PROJECT_AGENCY | FIELD_OFFICER
-  email: 'admin@bhoomisetu.gov.in',
+  email: 'admin@landvision.gov.in',
   organization: 'National Land Authority, PMO',
   state: 'All India',
   district: 'All',
@@ -15,54 +15,54 @@ export const INITIAL_USER = {
 export const DEMO_USERS = [
   {
     id: 'usr-001',
-    name: 'Dr. Rajesh Kumar, IAS',
+    name: 'Swathi',
     role: 'ADMIN',
-    email: 'admin@bhoomisetu.gov.in',
+    email: 'admin@landvision.gov.in',
     organization: 'National Land Authority, PMO',
     state: 'All India',
     district: 'All'
   },
   {
     id: 'usr-002',
-    name: 'Smt. V. Anitha, IAS',
+    name: 'Blessy',
     role: 'CENTRAL_MINISTRY',
-    email: 'central.ministry@bhoomisetu.gov.in',
+    email: 'central.ministry@landvision.gov.in',
     organization: 'Ministry of Road Transport & Highways (MoRTH)',
     state: 'All India',
     district: 'All'
   },
   {
     id: 'usr-003',
-    name: 'Thiru M. Selvam, IAS',
+    name: 'Lokha',
     role: 'STATE_GOVT',
-    email: 'state.tn@bhoomisetu.gov.in',
+    email: 'state.tn@landvision.gov.in',
     organization: 'Revenue & Disaster Management Dept, Govt of Tamil Nadu',
     state: 'Tamil Nadu',
     district: 'All'
   },
   {
     id: 'usr-004',
-    name: 'Shri K. Sundaram, DRO',
+    name: 'Kaviya',
     role: 'DISTRICT_AUTHORITY',
-    email: 'dro.kanchipuram@bhoomisetu.gov.in',
+    email: 'dro.kanchipuram@landvision.gov.in',
     organization: 'District Land Acquisition Cell, Kanchipuram',
     state: 'Tamil Nadu',
     district: 'Kanchipuram'
   },
   {
     id: 'usr-005',
-    name: 'Er. Suresh Verma',
+    name: 'Varshini',
     role: 'PROJECT_AGENCY',
-    email: 'agency.nhai@bhoomisetu.gov.in',
+    email: 'agency.nhai@landvision.gov.in',
     organization: 'National Highways Authority of India (NHAI)',
     state: 'Tamil Nadu',
     district: 'Kanchipuram'
   },
   {
     id: 'usr-006',
-    name: 'Inspector P. Balaji',
+    name: 'Sankari',
     role: 'FIELD_OFFICER',
-    email: 'field.officer@bhoomisetu.gov.in',
+    email: 'field.officer@landvision.gov.in',
     organization: 'Sriperumbudur Land Revenue Survey Unit',
     state: 'Tamil Nadu',
     district: 'Kanchipuram'

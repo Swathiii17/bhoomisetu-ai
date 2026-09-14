@@ -6,8 +6,8 @@ import StatusBadge from '../common/StatusBadge';
 
 // Custom Marker Icons by Status
 const createCustomIcon = (status, isDispute = false) => {
-  let color = '#0284c7'; // Proposed - Sky
-  if (status === 'Acquired' || status === 'Possession Completed') color = '#059669'; // Emerald
+  let color = '#5b9f7d'; // Proposed - Sage
+  if (status === 'Acquired' || status === 'Possession Completed') color = '#176b4d'; // Forest green
   else if (status === 'Under Verification' || status === 'Compensation Pending') color = '#d97706'; // Amber
   else if (status === 'Disputed' || isDispute) color = '#e11d48'; // Rose Red
 
@@ -54,9 +54,11 @@ export default function GISMap({ parcels = [], projects = [], height = '550px', 
     <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 shadow-2xl space-y-4">
       {/* Map Control Header */}
       <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
+
         {/* Search Input */}
         <div className="relative flex-1">
           <Search className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
+
           <input
             type="text"
             placeholder="Search Survey No, Village, Parcel ID..."
@@ -68,6 +70,7 @@ export default function GISMap({ parcels = [], projects = [], height = '550px', 
 
         {/* Filter Controls */}
         <div className="flex items-center space-x-2 overflow-x-auto">
+
           {/* Status Filter */}
           <select
             value={statusFilter}
@@ -102,38 +105,55 @@ export default function GISMap({ parcels = [], projects = [], height = '550px', 
             onClick={() => setShowDisputeHeatmap(!showDisputeHeatmap)}
             className={`flex items-center space-x-1.5 px-3 py-2 rounded-xl text-xs font-semibold border transition-all ${
               showDisputeHeatmap
-                ? 'bg-rose-950/80 text-rose-300 border-rose-700/80'
+                ? 'bg-rose-950/80 !text-white border-rose-700/80'
                 : 'bg-slate-950 text-slate-400 border-slate-800 hover:text-white'
             }`}
           >
             <AlertTriangle size={14} />
-            <span className="hidden sm:inline">Dispute Risk Zones</span>
+            <span className="hidden sm:inline !text-white">
+              Dispute Risk Zones
+            </span>
           </button>
         </div>
       </div>
 
       {/* Leaflet Map Canvas */}
-      <div style={{ height }} className="w-full rounded-xl overflow-hidden relative border border-slate-800">
-        <MapContainer center={defaultCenter} zoom={11} scrollWheelZoom={false} style={{ width: '100%', height: '100%' }}>
+      <div
+        style={{ height }}
+        className="w-full rounded-xl overflow-hidden relative border border-slate-800"
+      >
+        <MapContainer
+          center={defaultCenter}
+          zoom={11}
+          scrollWheelZoom={false}
+          style={{ width: '100%', height: '100%' }}
+        >
           <LayersControl position="topright">
-            <LayersControl.BaseLayer checked name="OpenStreetMap Dark">
+
+            <LayersControl.BaseLayer name="OpenStreetMap Dark">
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
               />
             </LayersControl.BaseLayer>
-            <LayersControl.BaseLayer name="OpenStreetMap Standard">
+
+            <LayersControl.BaseLayer checked name="OpenStreetMap Standard">
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
             </LayersControl.BaseLayer>
+
           </LayersControl>
 
           {/* High Risk Dispute Heatmap Rings */}
           {showDisputeHeatmap &&
             filteredParcels
-              .filter(p => p.acquisitionStatus === 'Disputed' || p.disputeRisk === 'HIGH')
+              .filter(
+                p =>
+                  p.acquisitionStatus === 'Disputed' ||
+                  p.disputeRisk === 'HIGH'
+              )
               .map(p => (
                 <Circle
                   key={`heat-${p.id}`}
@@ -154,39 +174,78 @@ export default function GISMap({ parcels = [], projects = [], height = '550px', 
             <Marker
               key={parcel.id}
               position={[parcel.lat, parcel.lng]}
-              icon={createCustomIcon(parcel.acquisitionStatus, parcel.disputeRisk === 'HIGH')}
+              icon={createCustomIcon(
+                parcel.acquisitionStatus,
+                parcel.disputeRisk === 'HIGH'
+              )}
             >
               <Popup>
+
                 <div className="p-1 space-y-2 text-slate-100 font-sans text-xs">
+
                   <div className="flex items-center justify-between border-b border-slate-700 pb-1">
-                    <span className="font-mono font-bold text-indigo-300">{parcel.id}</span>
+                    <span className="font-mono font-bold text-indigo-300">
+                      {parcel.id}
+                    </span>
+
                     <StatusBadge status={parcel.acquisitionStatus} />
                   </div>
+
                   <div>
-                    <h4 className="font-bold text-sm text-white">Survey No: {parcel.surveyNumber}</h4>
-                    <p className="text-[11px] text-slate-300">{parcel.village}, {parcel.district}, {parcel.state}</p>
+                    <h4 className="font-bold text-sm text-white">
+                      Survey No: {parcel.surveyNumber}
+                    </h4>
+
+                    <p className="text-[11px] text-slate-300">
+                      {parcel.village}, {parcel.district}, {parcel.state}
+                    </p>
                   </div>
+
                   <div className="grid grid-cols-2 gap-2 bg-slate-950 p-2 rounded border border-slate-800 text-[10px]">
+
                     <div>
                       <span className="text-slate-400">Area:</span>
-                      <div className="font-bold text-slate-200">{parcel.areaAcquired} Acres</div>
+                      <div className="font-bold text-slate-200">
+                        {parcel.areaAcquired} Acres
+                      </div>
                     </div>
+
                     <div>
-                      <span className="text-slate-400">Owners ({parcel.ownerCount}):</span>
-                      <div className="font-medium text-slate-200 truncate">{parcel.ownerNames}</div>
+                      <span className="text-slate-400">
+                        Owners ({parcel.ownerCount}):
+                      </span>
+
+                      <div className="font-medium text-slate-200 truncate">
+                        {parcel.ownerNames}
+                      </div>
                     </div>
+
                     <div>
-                      <span className="text-slate-400">Compensation:</span>
-                      <div className="font-bold text-amber-300">₹{(parcel.totalCompensation / 100000).toFixed(2)} Lakh</div>
+                      <span className="text-slate-400">
+                        Compensation:
+                      </span>
+
+                      <div className="font-bold text-amber-300">
+                        ₹{(parcel.totalCompensation / 100000).toFixed(2)} Lakh
+                      </div>
                     </div>
+
                     <div>
-                      <span className="text-slate-400">Possession:</span>
-                      <div className="font-bold text-slate-200">{parcel.possessionStatus}</div>
+                      <span className="text-slate-400">
+                        Possession:
+                      </span>
+
+                      <div className="font-bold text-slate-200">
+                        {parcel.possessionStatus}
+                      </div>
                     </div>
+
                   </div>
+
                   <div className="text-[10px] font-mono text-slate-400">
                     GPS: {parcel.lat.toFixed(4)}° N, {parcel.lng.toFixed(4)}° E
                   </div>
+
                   {onSelectParcel && (
                     <button
                       onClick={() => onSelectParcel(parcel)}
@@ -196,24 +255,51 @@ export default function GISMap({ parcels = [], projects = [], height = '550px', 
                       <span>Inspect Details</span>
                     </button>
                   )}
+
                 </div>
+
               </Popup>
             </Marker>
           ))}
+
         </MapContainer>
 
         {/* Floating Map Legend */}
-        <div className="absolute bottom-3 left-3 z-[400] bg-slate-950/90 backdrop-blur border border-slate-800 rounded-xl p-2.5 shadow-2xl text-[10px] text-slate-300 space-y-1.5">
-          <div className="font-bold text-slate-200 uppercase tracking-wider text-[9px] border-b border-slate-800 pb-1">
+        <div className="absolute bottom-3 left-3 z-[400] bg-slate-950/90 backdrop-blur border border-slate-800 rounded-xl p-2.5 shadow-2xl text-[10px] !text-slate-100 space-y-1.5">
+
+          <div className="font-bold !text-white uppercase tracking-wider text-[9px] border-b border-slate-800 pb-1">
             Parcel Map Legend
           </div>
+
           <div className="grid grid-cols-2 gap-x-3 gap-y-1">
-            <span className="flex items-center space-x-1.5"><span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span><span>Acquired / Possessed</span></span>
-            <span className="flex items-center space-x-1.5"><span className="w-2.5 h-2.5 rounded-full bg-sky-500"></span><span>Proposed</span></span>
-            <span className="flex items-center space-x-1.5"><span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span><span>Verification / Comp Pending</span></span>
-            <span className="flex items-center space-x-1.5"><span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span><span className="text-rose-300 font-bold">Disputed (High Risk)</span></span>
+
+            <span className="flex items-center space-x-1.5 !text-slate-100">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+              <span className="!text-slate-100">Acquired / Possessed</span>
+            </span>
+
+            <span className="flex items-center space-x-1.5 !text-slate-100">
+              <span className="w-2.5 h-2.5 rounded-full bg-sky-500"></span>
+              <span className="!text-slate-100">Proposed</span>
+            </span>
+
+            <span className="flex items-center space-x-1.5 !text-slate-100">
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+              <span className="!text-slate-100">
+                Verification / Comp Pending
+              </span>
+            </span>
+
+            <span className="flex items-center space-x-1.5 !text-slate-100">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
+              <span className="!text-white font-bold">
+                Disputed (High Risk)
+              </span>
+            </span>
+
           </div>
         </div>
+
       </div>
     </div>
   );

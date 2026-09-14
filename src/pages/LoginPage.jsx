@@ -4,7 +4,7 @@ import { getRoleLandingPath, useAuth } from '../contexts/AuthContext';
 import { Landmark, Lock, Mail, ArrowRight, ShieldCheck } from 'lucide-react';
 
 export default function LoginPage() {
-  const [email, setEmail] = useState('admin@bhoomisetu.gov.in');
+  const [email, setEmail] = useState('admin@landvision.gov.in');
   const [password, setPassword] = useState('password123');
   const { login, DEMO_USERS } = useAuth();
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ export default function LoginPage() {
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-9 pr-4 py-2.5 text-xs text-slate-100 placeholder-slate-600 focus:outline-none focus:border-indigo-500"
-                placeholder="officer@bhoomisetu.gov.in"
+                placeholder="officer@landvision.gov.in"
               />
             </div>
           </div>

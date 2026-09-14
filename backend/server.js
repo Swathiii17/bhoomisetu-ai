@@ -33,7 +33,7 @@ let projects = [
 
 // Healthcheck
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'OK', service: 'BhoomiSetu AI REST Backend', timestamp: new Date() });
+  res.json({ status: 'OK', service: 'LandVision REST Backend', timestamp: new Date() });
 });
 
 // GET /api/projects
@@ -89,5 +89,5 @@ app.post('/api/ai/predict-delay', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`BhoomiSetu AI REST Backend running on http://localhost:${PORT}`);
+  console.log(`LandVision REST Backend running on http://localhost:${PORT}`);
 });
